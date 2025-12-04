@@ -103,17 +103,23 @@ st.markdown("""
 # =============================================================================
 # LOAD MODEL AND ARTIFACTS
 # =============================================================================
-BASE_DIR = r"C:\Users\mariem ben slama\Documents\churn-project"
-MODEL_PATH = os.path.join(BASE_DIR, "models", "best_model.pkl")
-SCALER_PATH = os.path.join(BASE_DIR, "models", "scaler.pkl")
-COLUMNS_PATH = os.path.join(BASE_DIR, "models", "training_columns.pkl")
+# Path of folder containing this file (streamlit_app/)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Path of the project root (one folder up)
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
+
+# Correct model paths
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "best_model.pkl")
+SCALER_PATH = os.path.join(PROJECT_ROOT, "models", "scaler.pkl")
+COLUMNS_PATH = os.path.join(PROJECT_ROOT, "models", "training_columns.pkl")
 
 try:
     model = joblib.load(MODEL_PATH)
     scaler = joblib.load(SCALER_PATH)
     training_columns = joblib.load(COLUMNS_PATH)
 except Exception as e:
-    st.error(f"❌ Error loading model files: {e}")
+    st.error(f" Error loading model files: {e}")
     st.stop()
 
 # =============================================================================
