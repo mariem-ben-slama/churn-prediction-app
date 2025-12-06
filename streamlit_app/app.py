@@ -154,7 +154,7 @@ with st.sidebar:
     
     st.markdown("## Model Info")
     st.markdown("""
-    - **Algorithm**: Linear Regression
+    - **Algorithm**: Logistic Regression
     - **Training Data**: Telco Customer Churn Dataset
     - **Features**: 20+ customer attributes
     """)
